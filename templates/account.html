@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block title %}
+    Account
+{% endblock %}
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <h5>{{ message }}</h5>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<form action="/account" id="edit" method="post">
+    <div class="register">
+        <section>
+        <label class="infolabel"> Username </label>
+           <input type="text" class="infotext" placeholder="Username" id="editname" name="name" value="{{information[0]['name']}}" disabled="true" autocomplete="on" autofocus type="text">
+            <span id="editaddremove"> <button type="submit" id="editn">edit</button></span>
+        </section>
+        
+        <section>
+            <label class="infolabel"> Email </label>
+            <input  class="infotext" placeholder="Email" id="email" name="ChangeEmail" value="{{information[0]['email']}}" disabled type="email">
+           <span id="editaddremoveemail"> <button type="submit" id="edite">edit</button></span>
+        </section>
+       <section>
+        <section>
+            <h2>History</h2>
+            {% if history %}
+            {% for view in history %}
+            
+                <fieldset>
+                <article>
+                <span><a href="{{view['video_url']}}"><img src="{{view['thumbnail']}}" class="img-thumbnail"></a></span>
+                <span class="span">Title:  {{view['video_title']}}</span>
+                <span class="span">Time : {{view['time']}}</span>
+                <span class="span"><form action="\account" method="post"><input type="hidden" name="removal" value="{{view['video_title']}}"><button type="submit">Remove</button></form></span>
+            </article>
+            </fieldset>
+            
+            {% endfor %}
+            <p><a href="/"> Search for more !</a></p>
+            {% else %}
+            <p>You still haven't search for anything! <a href="/">Search Here now!</a></p>
+            {% endif %}
+            
+        </section>
+        
+    </div>
+  </form>
+{% endblock %}

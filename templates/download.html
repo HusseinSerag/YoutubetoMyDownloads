@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Download
+{% endblock %}
+
+{% block body %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <h5>{{ message }}</h5>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<div class="downloader">
+<div class="pushdown"></div>
+<form action="/" method="post">
+    <div class="form-group inner">
+        <label for="InputVideo" class="label1 lead">Enter your video URL here </label>
+        <input id="InputVideo" name="InputVideo" autocomplete="off" autofocus class="form-control">
+        <button type="submit" class="btn btn-group-sm">Submit</button>
+    </div>
+</form>
+</div>
+<div>
+<form id="form" class="search form-group">
+    <label for="SearchVideo" >Browse More Videos Here</label>
+    <input id="SearchVideo" autocomplete="off" type="text" class="form-control">
+    <button id="Search" class="btn">Search</button>
+    <div id="videos"></div>
+</form>
+</div>
+<article class="article">To be able to download YouTube videos , please copy the video's URL and paste it or search for the video of your liking and copy it's URL</article>
+{% endblock %}

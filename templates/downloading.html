@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Downloading
+{% endblock %}
+
+{% block body %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <h5>{{ message }}</h5>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<div id="overlay">
+    <div id="text">Downloading...</div></div>
+<form action="/downloading" id="form1" method="post">
+<div class="pushdown"></div>
+<div class="centered">
+<iframe src="https://www.youtube.com/embed/{{id}}" class="single" allowfullscreen></iframe>
+<article class="middle"> <div>Video Type </div>
+   
+<input id="CheckBox"  name="CheckBox" type="radio" value="audio" class="inputs"> <label for="CheckBox" class="label"> Audio</label>
+
+ <input id="CheckBox1"  name="CheckBox" type="radio" value="video" class="inputs"> <label for="CheckBox1" > Video</label>
+
+</article>
+<article class="middle"><div> Where to save?</div>
+
+<input type="radio" class="inputs" name="path" value="local"> <label > Local Machine </label>
+</article>
+<button class="btn middleb" type="submit">Download</button>
+</div>
+</form>
+
+{% endblock %}

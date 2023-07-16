@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% block title %}
+    Register
+{% endblock %}
+{% block body %}
+<h1>Register now for free!</h1>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <h5>{{ message }}</h5>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<form action="/register" method="post">
+    <div class="register">
+        <section>
+        <label for="name" class="infolabel"> Username</label>
+            <input id="name" type="text" name="name" class="infotext" placeholder="Username" autocomplete="off" autofocus type="text">
+        </section>
+        <section>
+        <label for="email" class="infolabel"> Email</label>
+            <input id="email" name="email" class="infotext" autocomplete="off" placeholder="Email"  type="email">
+        </section>
+        <section>
+            
+            <label for="password" class="infolabel"> Password</label>
+            <input  class="infotext" placeholder="password" id="password" name="password" type="password">
+            <small>Please enter at least 8 characters , 1 Uppercase  , 1 lowercase  , 1 special character ,and 1 number</small>
+            <div>
+            <input type="checkbox" id="fcheckbox"><small>Show Password</small>
+        </div>
+        </section>
+        <section>
+            <label for="password" class="infolabel"> Confirm Password</label>
+            <input  class="infotext" placeholder="password" name="confirm" id="confirm" type="password">
+            <div>
+                <small id="small"></small>
+            <input type="checkbox" id="scheckbox"><small>Show Password</small>
+        </div>
+        </section>
+        <section>
+            <button id="register">Register</button>
+        </section>
+        <section>
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </section>
+    </div>
+  </form>
+{% endblock %}

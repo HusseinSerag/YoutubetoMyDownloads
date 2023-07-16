@@ -1,0 +1,14 @@
+# Youtube to MyDownloads
+### Video Demo : https://youtu.be/xzzks4aVkEI
+### description:
+### This web application downloads  any unrestriced video from youtube to the local machine of your computer using HTML , CSS , JavaScript , Flask , JQuery , SQLite
+### each template extends index.html which has the links for bootstrap , jquery ,and css. It also has the navbar which is designed depending if the user is registered and logged in or not
+### A person can download whether or not he/she is registered but cannot access any history or account-based services
+### register and login has a show password which is made using raw javascript and validates data based on the data in the SQLite database additional to login a person can change his/her password if logged in and validates the data
+### Download has two search bars , first one is the video URL submitter which would be processed using the python module pytube , and second search bar is used to access youtube search and display youtube videos using the youtube data api provided by Google . A person shal only type in a valid youtube link which is validated by making sure that there is an existing youtube ID
+### Downloading gives the option of either download the video as audio or video and store in file called MyDownloads . Audio files would be stored in a file called MyAudio inside MyDownloads and Video files would be stores inside a file called MyVideos inside MyDownloads , to help seperate audio and video file. While downloading a kind of weak css "downloading" screen would appear till the page reload and download is finished!
+### Account help us to change username or email on the spot, using javascript I was able to make it much more dynamic and be able to change and submit the new data without reloading the page , plus it displays a history sections of all downloaded files!
+### Helpers.py has predefined functions I created to help isolate certain tasks like :- creating MyDownloads , MyAudios , MyVideos , finding the Downloads folder in a computer   , and checking if the input password and email are valid using the re module.
+### Script.js includes JQuery and raw javascript both alike! JQuery is used to establish the connection with the youtube data API and JavaScript for simple dynamic user friendly interactions.
+### I really found the user validation important as I wanted to make sure to implement a safe account which can easily remove and change his/her data dynamically
+### Jinja also allowed me to have a really dynamic website which allowed me to easily change and modify my pages and using this project I can easily download any youtube video of my liking as either an audio or video and have a special playlist in my local machine rather than depending on Spotify !
